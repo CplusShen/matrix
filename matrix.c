@@ -34,10 +34,10 @@
 #define MATRIX_WIDTH 7
 #define MATRIX_HEIGHT 8
 
-#define MAX_STEP 1000
-#define MAX_DEPTH 8
+#define MAX_STEP 20000
+#define MAX_DEPTH 10
 
-#define MAX_HISTORY 100
+#define MAX_HISTORY 2000
 
 #define DEBUG 0
 
@@ -502,6 +502,21 @@ int main(int argc,char* argv[])
   bzero(&now,sizeof(now));
   bzero(&next,sizeof(next));
   bzero(&dest,sizeof(dest));
+
+  printf("max_depth = %d\n", max_depth);
+  printf("Usage: %s <source_type> <source_x> <source_y> <dest_type> <dest_x> <dest_y>\n", argv[0]);
+  printf("Type 0: STAND, Type 1: HOR, Type 2: VER\n");
+  printf(
+"(y)\n"
+" 0 0,0                     6,0 \n"
+" 1                             \n"
+" 2                             \n"
+" 3                             \n"
+" 4                             \n"
+" 5                             \n"
+" 6                             \n"
+" 7 0,7 1,7 2,7 3,7 4,7 5,7 6,7 \n"
+"    0   1   2   3   4   5   6  (x)\n\n");
 
   now.type = strtoul(argv[1],NULL,0);
   switch(now.type) {
